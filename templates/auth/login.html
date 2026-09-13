@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+{% load socialaccount%}
+
+{% block title %}
+    Login User
+{% endblock  %}
+
+{% block main-content %}
+
+    <div class="container my-5" id='login'>
+        <div class="col-md-5 m-auto shadow p-3 rounded-4 border-top border-warning border-5">
+            <h2 class="text-center">Login To Your Account!!</h2>
+            <hr>
+            <form action="#" method="post" autocomplete="off">
+                {% csrf_token %}
+                {{ form | crispy }}
+
+                <div class="button text-center my-2">
+                    <input type="submit" value="Login" class="btn btn-warning">
+                </div>
+                <hr class="col-6 m-auto my-2">
+                <p class="text-center">Are you New ?
+                    <a href="{%  url 'register' %}">Register here</a>
+                </p>
+                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-dark">Login with Google</a>
+            </form>
+        </div>
+
+    </div>
+{% endblock  %}
+
+{% block script %}
+
+{% endblock  %}

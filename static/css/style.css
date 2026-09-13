@@ -1,0 +1,95 @@
+.asteriskField{
+    color:red;
+}
+
+form textarea{
+    resize:none;
+}
+
+#login .form-group{
+    margin: 15px 0;
+}
+
+:root{
+--main-color:gray;
+}
+
+ *{
+    transition: all 0.5s;
+ }
+ /* ============================================================= */
+ header ul a{
+    font-size: 20px !important;
+    color: var(--main-color) !important;
+ }
+ header ul a:hover{
+    color: chocolate !important;
+ }
+ header ul .active{
+    font-weight: bold !important;
+    color: chocolate !important;
+ }
+ header ul .active::after{
+content: '';
+display: block;
+width: 50px;
+height: 2px;
+background: var(--main-color) !important;
+ }
+ /* ==================================Baner============== */
+ #banner{
+    width: 90%;
+    margin: 5% auto;
+    height: 65vh;
+    border-radius:30px;
+    box-shadow: 0 0 10px;
+    overflow: hidden;
+ }
+ #banner .carousel-item{
+    height: 65vh;
+ }
+ #banner button{
+    width:50px;
+    height:50px;
+    background: var(--main-color);
+    border-radius: 50%;
+    top:45%;
+    margin:0 20px
+ }
+ #banner .carousel-item img{
+    height: 100%;
+    object-fit: fill;
+ }
+ footer{
+   width:100%;
+ }
+ footer img{
+   height: 120px;
+   width: 150px;
+ }
+ .link p{
+   color: gray;
+   font-weight: bold;
+ }
+ h4{
+   color: gray;
+ }
+ .link p:hover{
+   color: chocolate !important ;
+ }
+ .link a{
+   text-decoration: none;
+ }
+ /* ================================trending============ */
+ #trending .card{
+   height: 360px;
+ }
+ #trending .card img,
+  #products .card img
+ {
+   height: 65%;
+   object-fit: contain;
+ }
+ ::-webkit-scrollbar{
+  display: none;
+ }

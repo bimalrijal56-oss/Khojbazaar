@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    Products
+{% endblock  %}
+{% block main-content %}
+
+  <div class="my-5 px-5" id="products">
+         <div class="row row-cols-1  row-cols-sm-2 row-cols-md-4 g-4">
+        {% for item in products %}
+                <div class="col">
+          <div class="card">
+            <img src="{{item.image.url}}" class="card-img-top" alt="Item1">
+            <div class="card-body">
+              <h5 class="card-title">{{item.title}}</h5>
+              <p class="card-text fw-bold">Price: <small class="text-decoration-line-through text-danger me-1 fw-bold">${{item.actual_price}}</small><span class="text-success">${{item.discount_price}}</span></p>
+              <a href="{% url 'product-details' item.id %}">View more➟</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+         
+       
+
+        
+          
+
+
+ 
+
+
+{% endblock %}

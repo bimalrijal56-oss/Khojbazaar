@@ -1,0 +1,54 @@
+ <header class="bg-info-subtle px-5">
+        <nav class="navbar navbar-expand-lg ">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+        <img src="{{data.logo.url}}" alt="E-commerce"width="50"height="50" class="rounded-circle shadow">
+
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav m-auto my-2 my-lg-0 navbar-nav-scroll">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'products' %}">Products</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'carts' %}">Carts</a>
+        </li>
+
+         <li class="nav-item">
+          <a class="nav-link" href="about.html">About</a>
+        </li>
+
+
+         <li class="nav-item">
+          <a class="nav-link" href="contact.html">Contacts</a>
+        </li>
+       
+       
+      </ul>
+     <div class="d-flex">
+      {% if user.is_authenticated %}
+            <div class="btn-group">
+      <button type="button" class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+       {{user.username}}
+      </button>
+      <ul class="dropdown-menu dropdown-menu-lg-end">
+        <li><a href='' class="dropdown-item" type="button">Profile</a></li>
+        <li><a href='{% url 'my-orders' %}' class="dropdown-item" type="button">My Orders</a></li>
+        <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Logout</a></li>
+      </ul>
+    </div>
+      {% else %}
+        <a href="{% url 'register' %}" class="btn btn-dark btn-sm me-2">Register</a>
+      <a href="{% url 'login' %}" class="btn btn-light btn-sm me-2">Login</a>
+      {% endif %}
+     </div>
+    </div>
+  </div>
+</nav></header>

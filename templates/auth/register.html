@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Register User
+{% endblock  %}
+
+{% block main-content %}
+
+    <div class="container my-5" id='register'>
+        <div class="col-md-5 m-auto shadow p-3 rounded-4 border-top border-warning border-5">
+            <h2 class="text-center">Register Yourself!!</h2>
+            <hr>
+            <form action="#" method="post" autocomplete="off">
+                {% csrf_token %}
+                {{ form | crispy }}
+
+                <div class="button text-center my-2">
+                    <input type="submit" value="register" class="btn btn-warning">
+                </div>
+                <hr class="col-6 m-auto my-2">
+                <p class="text-center">Already have an account?
+                    <a href="{%  url 'login' %}">Login here</a>
+                </p>
+            </form>
+        </div>
+
+    </div>
+{% endblock  %}
+
+{% block script %}
+
+{% endblock  %}

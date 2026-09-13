@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+    Add Product
+{% endblock  %}
+
+{% block main-content %}
+
+    <div class="container my-5" id='addproduct'>
+        <div class="col-md-7 m-auto shadow p-3 rounded-4">
+            <h2 class="text-center">Add Product</h2>
+            <form action="#" method="post" autocomplete="off" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+
+                <div class="button text-center">
+                    <input type="submit" value="Add" class="btn btn-warning">
+                </div>
+            </form>
+        </div>
+
+    </div>
+{% endblock  %}
+
+{% block script %}
+
+{% endblock  %}
