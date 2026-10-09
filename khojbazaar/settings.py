@@ -326,7 +326,7 @@ STORAGES = {
 
 try:
     import whitenoise
-    STORAGES["staticfiles"]["BACKEND"] = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+    STORAGES["staticfiles"]["BACKEND"] = "whitenoise.storage.CompressedStaticFilesStorage"
 except ImportError:
     pass
 
