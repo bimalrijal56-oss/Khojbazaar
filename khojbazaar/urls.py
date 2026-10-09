@@ -16,6 +16,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path,include
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -25,4 +27,4 @@ urlpatterns = [
     path('auth/',include('accounts.urls')),
     path('accounts/', include('allauth.urls')),
     path("ckeditor5/", include('django_ckeditor_5.urls')),
-] 
+]

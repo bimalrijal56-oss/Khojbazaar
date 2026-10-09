@@ -174,3 +174,58 @@ def stripeSuccess(request):
      except Exception:
           messages.error(request,'Payment failed.Please try again')
           return redirect('carts')
+
+def about_us(request):
+    return render(request,'aboutus.html')
+
+def contact_us(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email = request.POST.get('email')
+        message = request.POST.get('message')
+
+        if name and email and message:
+            Contact.objects.create(
+                name=name,
+                email=email,
+                message=message
+            )
+            messages.success(request, "Thank you! Your message has been sent successfully.")
+            return redirect('contactus')
+        else:
+            messages.error(request, "Some error occurred. Please fill in all fields.")
+
+    return render(request, 'contactus.html')
+
+@login_required
+def add_to_wishlist(request,product_id):
+    product = get_object_or_404(Product,id=product_id)
+    user = request.user
+    existing_item = Wishlist.objects.filter(product=product,user=user)
+    if existing_item.exists():
+        messages.info(request, "Item is already in your wishlist")
+        return redirect('product-details',product_id=product.id)
+    else:
+        Wishlist.objects.create(user=user,product=product)
+        messages.success(request,"Item added to your wishlist")
+        return redirect('wishlist')
+
+@login_required
+def wishlist(request):
+    wishlist_items = Wishlist.objects.filter(user=request.user)
+    context = {
+        'wishlistItems':wishlist_items
+    }
+    return render(request,'wishlist.html',context)
+
+
+@login_required
+def delete_wishlist(request,wishlist_id):
+    wishlist_item = Wishlist.objects.filter(id=wishlist_id, user=request.user)
+    if wishlist_item.exists():
+        wishlist_item.delete()
+        messages.success(request, "Item removed from your wishlist")
+        return redirect('wishlist')
+    else:
+        messages.error(request, "Item not in your wishlist")
+        return redirect('wishlist') 

@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+My Wishlist
+{% endblock %}
+
+{% block main-content %}
+
+<div class="container my-2">
+    <div class="wishlist-heading d-flex gap-5 my-4">
+        <div class="heart-icon">
+            <div class="heart-icon-cover rounded-5 d-flex justify-content-center align-items-center">
+                <i class="bi bi-heart-fill text-danger fs-1"></i>
+            </div>
+        </div>
+        <div class="wishlist-heading">
+            <h3 class="my-wishlist">My Wishlist</h3>
+            <span class="wishlist-text">Your saved items are here.Keep your favourites items for later</span>
+        </div>
+    </div>
+    <hr>
+    <div class="my-5 px-5" id="products">
+        <div class="row row-cols-1  row-cols-sm-2 row-cols-md-4 g-4">
+            {% if wishlistItems %}
+            {% for item in wishlistItems %}
+            <div class="col">
+                <div class="card h-100 shadow-sm">
+                    <div class="favourites">
+                        <div class="icon-cover rounded-5 d-flex justify-content-center align-items-center flex-shrink-0">
+                            <i class="bi bi-heart-fill text-danger fs-5"></i>
+                        </div>
+                            </div>
+                    <img src="{{item.product.image.url}}" class="card-img-top" alt="{{item.product.title}}">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{item.product.title|slice:':20'}}{% if item.product.title|length > 30 %}...{% endif %}
+                        </h5>
+                        <p class="card-text fw-bold mb-2">Price: <small
+                                class="text-decoration-line-through text-danger me-1 fw-bold">${{item.product.actual_price}}</small><span
+                                class="text-success">${{item.product.discount_price}}</span></p>
+                            <div class="d-flex justify-content-between">
+                                <a href="{% url 'product-details' item.product.id %}"
+                            class="btn btn-sm  btn-info mt-auto text-decoration-none fw-semibold">View <i class="bi bi-eye-fill mx-2"></i></a>
+                            <a href="{% url 'delete-wishlist' item.product.id %}"class='btn btn-sm  btn-danger mt-auto text-decoration-none fw-semibold'>Delete<i class="bi bi-trash mx-2"></i></a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            {% else %}
+            <h2 class="d-1 text-center my-4">Your Wishlist Is Empty</h2>
+            {% endif %}
+        </div>
+
+        {% endblock %}

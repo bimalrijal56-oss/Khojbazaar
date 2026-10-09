@@ -1,4 +1,4 @@
- <header class="bg-info-subtle px-5">
+ <header class="px-5">
         <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
@@ -11,23 +11,23 @@
     <div class="collapse navbar-collapse" id="navbarScroll">
       <ul class="navbar-nav m-auto my-2 my-lg-0 navbar-nav-scroll">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}" aria-current="page" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="{% url 'products' %}">Products</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'products' %}active{% endif %}" href="{% url 'products' %}">Products</a>
         </li>
 
          <li class="nav-item">
-          <a class="nav-link" href="{% url 'carts' %}">Carts</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'carts' %}active{% endif %}" href="{% url 'carts' %}">Carts</a>
         </li>
 
          <li class="nav-item">
-          <a class="nav-link" href="about.html">About</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'aboutus' %}active{% endif %}" href="{% url 'aboutus' %}">About</a>
         </li>
 
 
          <li class="nav-item">
-          <a class="nav-link" href="contact.html">Contacts</a>
+          <a class="nav-link {% if request.resolver_match.url_name == 'contactus' %}active{% endif %} " href="{% url 'contactus' %}">Contacts</a>
         </li>
        
        
@@ -42,6 +42,7 @@
         <li><a href='' class="dropdown-item" type="button">Profile</a></li>
         <li><a href='{% url 'my-orders' %}' class="dropdown-item" type="button">My Orders</a></li>
         <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Logout</a></li>
+            <li><a href="{% url 'wishlist' %}" class="dropdown-item" type="button">My wishlist</a></li>
       </ul>
     </div>
       {% else %}

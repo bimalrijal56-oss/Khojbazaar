@@ -14,4 +14,9 @@ urlpatterns = [
     path('success',stripeSuccess,name='success'),
     path('success/',stripeSuccess,name='success_slash'),
     path('my-orders',myOrders,name='my-orders'),
+    path('aboutus',about_us,name='aboutus'),
+    path('contactus',contact_us,name='contactus'),
+    path('wishlist',wishlist,name='wishlist'), 
+    path('add-to-wishlist/<int:product_id>',add_to_wishlist,name='add-to-wishlist'),
+    path('delete-wishlist/<int:wishlist_id>',delete_wishlist,name='delete-wishlist'),
 ]

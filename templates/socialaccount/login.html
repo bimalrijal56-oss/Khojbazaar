@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+{% load static %}
+
+{% block title %}
+    Sign In Via Google
+{% endblock %}
+
+{% block main-content %}
+<div class="container my-5" id="social-login">
+    <div class="col-11 col-sm-9 col-md-6 col-lg-5 m-auto shadow p-4 p-md-5 rounded-4 border-top border-warning border-5 bg-white text-center">
+        
+        <!-- Google Icon Badge -->
+        <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-light shadow-sm p-3 mb-3" style="width: 75px; height: 75px;">
+            <img src="{% static 'images/google-logo.png' %}" alt="Google" width="40" height="40" onerror="this.outerHTML='<i class=\'bi bi-google text-danger fs-1\'></i>'">
+        </div>
+
+        <h3 class="fw-bold mb-2">Sign In With Google</h3>
+        <p class="text-muted mb-4 px-2">
+            You are about to connect and authenticate using your third-party account from <strong>Google</strong>.
+        </p>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="d-grid gap-2 col-md-10 mx-auto">
+                <button type="submit" class="btn btn-warning btn-lg fw-semibold shadow-sm py-2 d-flex align-items-center justify-content-center gap-2">
+                    <span>Continue to Google</span>
+                    <i class="bi bi-arrow-right"></i>
+                </button>
+                <a href="{% url 'login' %}" class="btn btn-outline-secondary py-2 mt-2">
+                    Cancel & Return to Login
+                </a>
+            </div>
+        </form>
+
+    </div>
+</div>
+{% endblock %}

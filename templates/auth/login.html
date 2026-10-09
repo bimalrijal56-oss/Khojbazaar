@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% load crispy_forms_tags %}
 {% load socialaccount%}
+{% load static %}
 
 {% block title %}
     Login User
@@ -23,7 +24,11 @@
                 <p class="text-center">Are you New ?
                     <a href="{%  url 'register' %}">Register here</a>
                 </p>
-                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-dark">Login with Google</a>
+                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-dark d-flex w-50">Login with Google
+                    <div class="mx-2">
+                        <img src="{% static 'images/google-logo.png' %}" class="google-logo" alt="G">
+                    </div>
+                </a>
             </form>
         </div>
 

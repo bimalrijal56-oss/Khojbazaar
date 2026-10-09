@@ -1,3 +1,4 @@
+from userpage.models import Contact
 from django.contrib import admin
 from .models import *
 
@@ -10,5 +11,10 @@ class AdminSetting(admin.ModelAdmin):
 admin.site.register(Cart)
 
 admin.site.register(Order)
+
+@admin.register(Contact)
+class AdminContact(admin.ModelAdmin):
+    list_display =['name','email','created_at']
+
 
         

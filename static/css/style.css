@@ -1,95 +1,268 @@
-.asteriskField{
-    color:red;
+.asteriskField {
+  color: red;
 }
 
-form textarea{
-    resize:none;
+form textarea {
+  resize: none;
 }
 
-#login .form-group{
-    margin: 15px 0;
+#login .form-group {
+  margin: 15px 0;
 }
 
-:root{
---main-color:gray;
+:root {
+  --main-color: #2a2adf;
+  --secondary: #F8FAFC;
+  --text:  #4e4c4c;
+
 }
 
- *{
-    transition: all 0.5s;
- }
- /* ============================================================= */
- header ul a{
-    font-size: 20px !important;
-    color: var(--main-color) !important;
- }
- header ul a:hover{
-    color: chocolate !important;
- }
- header ul .active{
-    font-weight: bold !important;
-    color: chocolate !important;
- }
- header ul .active::after{
-content: '';
-display: block;
-width: 50px;
-height: 2px;
-background: var(--main-color) !important;
- }
- /* ==================================Baner============== */
- #banner{
-    width: 90%;
-    margin: 5% auto;
-    height: 65vh;
-    border-radius:30px;
-    box-shadow: 0 0 10px;
-    overflow: hidden;
- }
- #banner .carousel-item{
-    height: 65vh;
- }
- #banner button{
-    width:50px;
-    height:50px;
-    background: var(--main-color);
-    border-radius: 50%;
-    top:45%;
-    margin:0 20px
- }
- #banner .carousel-item img{
-    height: 100%;
-    object-fit: fill;
- }
- footer{
-   width:100%;
- }
- footer img{
-   height: 120px;
-   width: 150px;
- }
- .link p{
-   color: gray;
-   font-weight: bold;
- }
- h4{
-   color: gray;
- }
- .link p:hover{
-   color: chocolate !important ;
- }
- .link a{
-   text-decoration: none;
- }
- /* ================================trending============ */
- #trending .card{
-   height: 360px;
- }
- #trending .card img,
-  #products .card img
- {
-   height: 65%;
-   object-fit: contain;
- }
- ::-webkit-scrollbar{
+header, .header {
+  background: var(--secondary);
+}
+
+footer,.footer{
+  background: var(--secondary);
+}
+
+* {
+  transition: all 0.5s;
+}
+
+/* ============================================================= */
+header ul a {
+  font-size: 20px !important;
+  color: black !important;
+}
+
+header ul a:hover {
+  color: var(--main-color) !important;
+}
+
+header ul .active {
+  font-weight: bold !important;
+  color: var(--main-color) !important;
+}
+
+header ul .active::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 2px;
+  background: var(--main-color) !important;
+}
+
+/* ==================================Baner============== */
+#banner {
+  width: 90%;
+  margin: 5% auto;
+  height: 65vh;
+  border-radius: 30px;
+  box-shadow: 0 0 10px;
+  overflow: hidden;
+}
+
+#banner .carousel-item {
+  height: 65vh;
+}
+
+#banner button {
+  width: 50px;
+  height: 50px;
+  background: var(--main-color);
+  border-radius: 50%;
+  top: 45%;
+  margin: 0 20px
+}
+
+#banner .carousel-item img {
+  height: 100%;
+  object-fit: contain;
+}
+
+footer {
+  width: 100%;
+}
+
+footer img {
+  height: 120px;
+  width: 150px;
+}
+
+.link p {
+  color: #4e4c4c;
+  font-weight: bold;
+}
+
+h4 {
+  color: #4e4c4c;
+}
+
+.link p:hover {
+  color: var(--main-color) !important;
+}
+
+.link a {
+  text-decoration: none;
+}
+
+/* ================================ Products & Trending Cards ============ */
+#trending .card,
+#products .card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#trending .card:hover,
+#products .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+#trending .card img,
+#products .card img {
+  height: 220px;
+  width: 100%;
+  object-fit: contain;
+  padding: 12px;
+  background-color: #fafafa;
+}
+
+#trending .card-body,
+#products .card-body {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+::-webkit-scrollbar {
   display: none;
- }
+}
+
+.contact-dis .get-in-touch{
+  color: var(--main-color) !important;
+  font-weight: 500;
+}
+
+.contact-dis .get-in-touch::after{
+  content:'';
+  display:block;
+  width:40px;
+  height:2px;
+  background-color: var(--main-color);
+}
+
+.aboutus-dis .about-rijal-bazaar{
+  color: var(--main-color) !important;
+  font-weight: 500;
+}
+
+.aboutus-dis .about-rijal-bazaar::after{
+  content:'';
+  display:block;
+  width:40px;
+  height:2px;
+  background-color: var(--main-color);
+}
+
+.icon-cover{
+  height: 30px;
+  width: 30px;
+  background-color: #d2cbcb;
+}
+
+.icon{
+  color: var(--main-color);
+}
+
+.contact-text,.contact-line{
+  color:var(--text)
+}
+
+.contact-heading{
+  font-weight:500;
+}
+
+.aboutus-text,.aboutus-line{
+  color:var(--text)
+}
+
+.aboutus-heading{
+  font-weight:500;
+}
+.submit-button{
+  background-color: #2f2ffe ;
+  color:white;
+  border:none;
+  transition:all 0.1s;
+}
+
+.submit-button:hover{
+  transform: translateY(-5px);
+  background-color: #22C55E;
+}
+
+.email-input, .name-input, .message-input {
+  transition: box-shadow 0.2s ease-in-out;
+}
+
+.email-input:focus, .name-input:focus, .message-input:focus {
+  outline: none !important;
+  box-shadow: 0 0 8px rgba(42, 42, 223, 0.7) !important;
+}
+
+.shadow-5 {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+}
+
+.aboutus-info .delivery,
+.aboutus-info .payment,
+.aboutus-info .support,
+.aboutus-info .quality-products {
+  background-color: #ffffff;
+  padding: 12px 16px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08) !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.aboutus-info .delivery:hover,
+.aboutus-info .payment:hover,
+.aboutus-info .support:hover,
+.aboutus-info .quality-products:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12) !important;
+}
+
+.google-logo{
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+}
+
+.my-wishlist{
+  font-weight:500;
+}
+
+.wishlist-text{
+ color: var(--text);
+}
+
+.favourites{
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  z-index:1;
+}
+
+.heart-icon-cover{
+  height: 30px;
+  width: 30px;
+  background-color: #FFF1F2;
+  
+}

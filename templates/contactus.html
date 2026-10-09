@@ -1,0 +1,71 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}
+About Us
+{% endblock %}
+
+{% block main-content %}
+
+<div class="container col-md-10 my-5 shadow shadow-5 d-md-flex rounded rounded-3 g-20">
+<div class="col-md-5 contact-dis">
+    <p class="get-in-touch">GET IN TOUCH</p>
+
+    <h2 class="my-2">
+        We'd Love To <br> Hear From You
+    </h2>
+    <p class="contact-line my-2">Have a question,feedback or need support? <br>Feel free to reach out us. <br> We'll get back to you as soon as possible</p>
+
+    <div class="contact-info my-3">
+        <div class="email d-flex">
+            <div class="icon-cover  rounded-5 d-flex justify-content-center">
+            <i class="bi bi-envelope-fill icon"></i>
+            </div>
+            <div class="info">
+                <span class="mx-4 contact-heading">Email</span>
+                <p class="mx-4 contact-text"> bimalrijal56@gmail.com</p>
+            </div>
+        </div>
+
+            <div class="phone d-flex">
+            <div class="icon-cover rounded-5 d-flex justify-content-center">
+            <i class="bi bi-telephone-fill icon"></i>
+            </div>
+            <div class="info">
+                <span class="mx-4 contact-heading ">Phone</span>
+                <p class="mx-4 contact-text">+977 9867428466</p>
+            </div>
+        </div>
+
+            <div class="address d-flex">
+            <div class="icon-cover rounded-5 d-flex justify-content-center">
+            <i class="bi bi-geo-alt-fill icon"></i>
+            </div>
+            <div class="info">
+                <span class="mx-4 contact-heading">Address</span>
+                <p class="mx-4 contact-text">Kathmandu,Nepal</p>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div class="col-md-4 contact-form">
+    <form action="" method="post" class="my-4">
+        {% csrf_token %}
+        <div class="name-box my-3">
+            <label for="name" class="fw-bold">Name</label><br>
+            <input type="text" id="name" name="name" placeholder="Your name" class="name-input w-100 rounded-2 border-0 px-3" style="height: 50px;">
+        </div>
+        <div class="email-box my-3">
+            <label for="email" class="fw-bold">Email</label><br>
+            <input type="email" id="email" name="email" placeholder="Your email" class="email-input w-100 rounded-2 border-0 px-3" style="height: 50px;">
+        </div>
+        <div class="message-box my-3">
+            <label for="message" class="fw-bold">Message</label><br>
+            <input type="text" id="message" name="message" placeholder="Type your message here.." class="message-input w-100 rounded-2 border-0 px-3" style="height: 110px;">
+        </div>
+        <button type="submit" class="submit-button rounded-3 w-100" style="height:35px;">Send Message</button>
+    </form>
+</div>
+</div>
+{% endblock %}
