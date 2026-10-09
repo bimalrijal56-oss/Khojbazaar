@@ -1,0 +1,192 @@
+[
+{
+  "model": "product.category",
+  "pk": 3,
+  "fields": {
+    "name": "Jillian Brooks",
+    "description": "Sint qui exercitatiqqw",
+    "created_at": "2026-09-01T10:38:27.593Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 4,
+  "fields": {
+    "name": "Serena Bradshaw",
+    "description": "Voluptas veniam a",
+    "created_at": "2026-09-01T10:38:32.281Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 5,
+  "fields": {
+    "name": "Ria Hunter",
+    "description": "Obcaecati quia error",
+    "created_at": "2026-09-04T13:47:31.565Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 6,
+  "fields": {
+    "name": "Jakeem Morin",
+    "description": "Nihil amet eos eve",
+    "created_at": "2026-09-04T13:47:43.436Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 7,
+  "fields": {
+    "name": "furniture",
+    "description": "",
+    "created_at": "2026-10-07T15:13:08.901Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 8,
+  "fields": {
+    "name": "cloths",
+    "description": "",
+    "created_at": "2026-10-07T15:13:17.397Z"
+  }
+},
+{
+  "model": "product.category",
+  "pk": 9,
+  "fields": {
+    "name": "accessories",
+    "description": "",
+    "created_at": "2026-10-07T15:13:28.054Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 9,
+  "fields": {
+    "category": 7,
+    "title": "Bed",
+    "actual_price": "1500.00",
+    "discount_price": "1200.00",
+    "tag": "Comfort and relaxing",
+    "trending": true,
+    "image": "static/uploads/bed.jpeg",
+    "description": "Its the most relaxing bed made up of cotton.",
+    "stock": 95,
+    "created_at": "2026-10-07T15:16:39.964Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 10,
+  "fields": {
+    "category": 9,
+    "title": "Watch",
+    "actual_price": "700.00",
+    "discount_price": "600.00",
+    "tag": "elegant",
+    "trending": true,
+    "image": "static/uploads/watch.avif",
+    "description": "The very elegant and stylish watch",
+    "stock": 0,
+    "created_at": "2026-10-07T15:18:03.269Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 11,
+  "fields": {
+    "category": 8,
+    "title": "Jacket",
+    "actual_price": "300.00",
+    "discount_price": "250.00",
+    "tag": "Stylish",
+    "trending": false,
+    "image": "static/uploads/jacket.jpg",
+    "description": "extremely high in quality",
+    "stock": 49,
+    "created_at": "2026-10-07T15:20:12.187Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 12,
+  "fields": {
+    "category": 9,
+    "title": "Mug",
+    "actual_price": "200.00",
+    "discount_price": "190.00",
+    "tag": "Beautiful",
+    "trending": false,
+    "image": "static/uploads/mug.avif",
+    "description": "very strong and durable",
+    "stock": 87,
+    "created_at": "2026-10-07T15:21:54.797Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 13,
+  "fields": {
+    "category": 9,
+    "title": "Iphone",
+    "actual_price": "2300.00",
+    "discount_price": "2290.00",
+    "tag": "Titanium cover",
+    "trending": true,
+    "image": "static/uploads/phone.jpg",
+    "description": "extremly high camera quality and security",
+    "stock": 100,
+    "created_at": "2026-10-07T15:23:48.031Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 14,
+  "fields": {
+    "category": 7,
+    "title": "Sofa",
+    "actual_price": "4500.00",
+    "discount_price": "4400.00",
+    "tag": "comfortable",
+    "trending": true,
+    "image": "static/uploads/sofa.jpg",
+    "description": "very comfortable within budget",
+    "stock": 61,
+    "created_at": "2026-10-07T15:26:18.933Z"
+  }
+},
+{
+  "model": "product.product",
+  "pk": 15,
+  "fields": {
+    "category": 9,
+    "title": "TV",
+    "actual_price": "1000.00",
+    "discount_price": "9995.00",
+    "tag": "colorful",
+    "trending": false,
+    "image": "static/uploads/tv.png",
+    "description": "colorful with 3D Quality",
+    "stock": 270,
+    "created_at": "2026-10-07T15:28:11.551Z"
+  }
+},
+{
+  "model": "userpage.setting",
+  "pk": 1,
+  "fields": {
+    "title": "Khojbazaar",
+    "favicon": "static/uploads/Screenshot_2025-01-15_200356.png",
+    "logo": "static/uploads/Screenshot_2025-01-15_200356_xEGbeZB.png",
+    "bio": "<p><span style=\"background-color:rgb(207,244,252);color:rgb(33,37,41);\">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste officiis hic tempora tenetur, omnis pariatur nemo magni commodi saepe! Nostrum necessitatibus praesentium enim maiores molestiae excepturi aliquam obcaecati beatae quae!</span></p>",
+    "email": "bimalrijal222@gmail.com",
+    "address": "lalitpur-17",
+    "phone": "9867422254",
+    "fb_link": "https://www.wacepuxejusefo.me",
+    "insta_link": "https://www.hixipoxiriqox.org.au"
+  }
+}
+]
