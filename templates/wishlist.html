@@ -25,7 +25,14 @@ My Wishlist
             {% if wishlistItems %}
             {% for item in wishlistItems %}
             <div class="col">
-                <div class="card h-100 shadow-sm">
+                <div class="card h-100 shadow-sm position-relative">
+                    {% with cat=item.product.category.name|default:item.product.category|stringformat:"s"|lower|cut:" " %}
+                    <div class="category-tag-corner">
+                        <span class="category-badge {% if cat == 'accessories' %}category-accessories{% elif cat == 'furniture' %}category-furniture{% elif cat == 'cloths' %}category-cloths{% else %}category-default{% endif %}">
+                            {{ item.product.category.name|default:item.product.category }}
+                        </span>
+                    </div>
+                    {% endwith %}
                     <div class="favourites">
                         <div class="icon-cover rounded-5 d-flex justify-content-center align-items-center flex-shrink-0">
                             <i class="bi bi-heart-fill text-danger fs-5"></i>
@@ -35,12 +42,12 @@ My Wishlist
                     <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{item.product.title|slice:':20'}}{% if item.product.title|length > 30 %}...{% endif %}
                         </h5>
-                        <p class="card-text fw-bold mb-2">Price: <small
-                                class="text-decoration-line-through text-danger me-1 fw-bold">${{item.product.actual_price}}</small><span
-                                class="text-success">${{item.product.discount_price}}</span></p>
+                        <p class="card-text fw-bold mb-2">Price: <span
+                                class="text-success me-1">${{item.product.discount_price}}</span><small
+                                class="text-decoration-line-through fw-bold" style="color: var(--text);">${{item.product.actual_price}}</small></p>
                             <div class="d-flex justify-content-between">
                                 <a href="{% url 'product-details' item.product.id %}"
-                            class="btn btn-sm  btn-info mt-auto text-decoration-none fw-semibold">View <i class="bi bi-eye-fill mx-2"></i></a>
+                            class="btn btn-sm btn-wishlist-view mt-auto text-decoration-none fw-semibold">View <i class="bi bi-eye-fill mx-2"></i></a>
                             <a href="{% url 'delete-wishlist' item.product.id %}"class='btn btn-sm  btn-danger mt-auto text-decoration-none fw-semibold'>Delete<i class="bi bi-trash mx-2"></i></a>
                             </div>
                     </div>

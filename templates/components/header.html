@@ -1,8 +1,10 @@
+ {% load static %}
+ 
  <header class="px-5">
         <nav class="navbar navbar-expand-lg ">
   <div class="container-fluid">
     <a class="navbar-brand" href="/">
-        <img src="{{data.logo.url}}" alt="E-commerce"width="50"height="50" class="rounded-circle shadow">
+        <img src="{% static 'images/logo.jpeg' %}" alt="E-commerce"width="75"height="75" class="rounded-circle shadow">
 
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
