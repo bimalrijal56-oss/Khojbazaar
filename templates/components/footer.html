@@ -1,34 +1,75 @@
 {% load static %}
 
+<footer class="footer pt-5 pb-3">
+  <div class="container-fluid px-3 px-md-5">
+    <div class="row g-4 justify-content-between">
+      <!-- Brand & About -->
+      <div class="col-12 col-md-5 col-lg-4">
+        <div class="mb-3">
+          <a href="{% url 'home' %}" class="text-decoration-none">
+            <img src="{% static 'images/logo.jpeg' %}" alt="Khojbazaar" class="footer-logo border rounded rounded-2">
+          </a>
+        </div>
+        <p class="footer-desc text-muted mb-2">
+          Khojbazaar is your one-stop online marketplace for discovering and shopping a wide range of products.
+          We aim to make online shopping simple, convenient, and reliable, bringing quality products right to your doorstep.
+        </p>
+        <p class="footer-tagline text-muted fw-semibold mb-0">
+          Shop smart. Shop easy. Shop at Khojbazaar.
+        </p>
+      </div>
 
-<footer class="footer px-5">
-        <div class="footer-content d-flex justify-content-evenly">
-          <div class=" p-4 col-md-3 ">
-          <img src="{% static 'images/logo.jpeg' %}" alt="logo" width="75" class="border rounded rounded-2 ">
-        <p class="my-2">Khojbazaar is your one-stop online marketplace for discovering and shopping a wide range of products.
-We aim to make online shopping simple, convenient, and reliable, bringing quality products right to your doorstep.
-Shop smart. Shop easy. Shop at Khojbazaar.</p>
+      <!-- Quick Links -->
+      <div class="col-6 col-md-3 col-lg-2 link">
+        <h4 class="footer-title">Quick links</h4>
+        <div class="d-flex flex-column gap-2 mt-3">
+          <a href="{% url 'home' %}" class="footer-link"><i class="bi bi-chevron-right small me-1"></i>Home</a>
+          <a href="{% url 'products' %}" class="footer-link"><i class="bi bi-chevron-right small me-1"></i>Products</a>
+          <a href="{% url 'aboutus' %}" class="footer-link"><i class="bi bi-chevron-right small me-1"></i>About Us</a>
+          <a href="{% url 'contactus' %}" class="footer-link"><i class="bi bi-chevron-right small me-1"></i>Contact Us</a>
         </div>
-          <div class="link col-md-2 ">
-            <h4>Quick links</h4>
-            <a href="#"><p>>Home</p></a>
-            <a href="#"><p>>About Us</p></a>
-            <a href="#"><p>>Contact Us</p></a>
-          </div>
-          <div class="col-md-2">
-            <h4>Contact Us</h4>
-            <p><i class="bi bi-house-fill"></i> Lagankhel, Mahalaxmisthan Road, GM Complex, Lalitpur</p>
-            <p><i class="bi bi-telephone-fill"></i> 977-9867428466</p>
-            <p><i class="bi bi-envelope-fill"></i> bimalrijal56@gmail.com</p>
-          </div>
-          <div class="col-md-2">
-            <h4>Follow Us</h4>
-            <a href="#"class="btn btn-outline-dark rounded-circle"><i class="bi bi-facebook"></i></a>
-            <a href="#"class="btn btn-outline-dark rounded-circle"><i class="bi bi-instagram"></i></a>
-            <a href="#"class="btn btn-outline-dark rounded-circle"><i class="bi bi-twitter"></i></a>
-          </div>
-          
+      </div>
+
+      <!-- Contact Us -->
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <h4 class="footer-title">Contact Us</h4>
+        <div class="d-flex flex-column gap-2 mt-3 text-muted">
+          <p class="mb-0 d-flex align-items-start">
+            <i class="bi bi-house-fill me-2 text-primary flex-shrink-0 mt-1"></i>
+            <span>Lagankhel, Mahalaxmisthan Road, GM Complex, Lalitpur</span>
+          </p>
+          <p class="mb-0 d-flex align-items-center">
+            <i class="bi bi-telephone-fill me-2 text-primary flex-shrink-0"></i>
+            <a href="tel:+9779867428466" class="text-decoration-none text-muted">+977-9867428466</a>
+          </p>
+          <p class="mb-0 d-flex align-items-center">
+            <i class="bi bi-envelope-fill me-2 text-primary flex-shrink-0"></i>
+            <a href="mailto:bimalrijal56@gmail.com" class="text-decoration-none text-muted text-break">bimalrijal56@gmail.com</a>
+          </p>
         </div>
-        <hr>
-        <p class="d-flex justify-content-center">©Copyright 2025 Khojbazaar Nepal. All Rights Reserves</p>
-      </footer>
+      </div>
+
+      <!-- Follow Us -->
+      <div class="col-6 col-sm-6 col-md-12 col-lg-2">
+        <h4 class="footer-title">Follow Us</h4>
+        <div class="d-flex gap-2 mt-3 flex-wrap">
+          <a href="#" class="btn btn-outline-dark rounded-circle footer-social-btn" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="#" class="btn btn-outline-dark rounded-circle footer-social-btn" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="#" class="btn btn-outline-dark rounded-circle footer-social-btn" aria-label="Twitter">
+            <i class="bi bi-twitter"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <hr class="my-4 text-muted opacity-25">
+
+    <div class="text-center">
+      <p class="mb-0 text-muted small">© Copyright 2025 Khojbazaar Nepal. All Rights Reserved.</p>
+    </div>
+  </div>
+</footer>
