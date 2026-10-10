@@ -16,5 +16,7 @@ admin.site.register(Order)
 class AdminContact(admin.ModelAdmin):
     list_display =['name','email','created_at']
 
+admin.site.register(Vendor_request)
+
 
         

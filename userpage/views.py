@@ -229,3 +229,30 @@ def delete_wishlist(request,wishlist_id):
     else:
         messages.error(request, "Item not in your wishlist")
         return redirect('wishlist') 
+
+
+@login_required
+def profile(request):
+    total_products = Product.objects.count()
+    total_categories = Category.objects.count()
+    total_orders = Order.objects.count()
+
+    if request.method == "POST":
+        form = Vendor_requestForm(request.POST,request.FILES)
+        if form.is_valid():
+            vendor_request = form.save(commit=False)
+            vendor_request.user=request.user
+            vendor_request.save()
+            messages.success(request,"Your request has ben submitted sucessfully. Wait for officail email")
+            return redirect('profile')
+        else:
+            messages.error(request,'Some error occured')
+    else:
+        form = Vendor_requestForm()
+    context = {
+        'total_products': total_products,
+        'total_categories': total_categories,
+        'total_orders': total_orders,
+        'form': form,
+    }
+    return render(request, 'profile.html', context)

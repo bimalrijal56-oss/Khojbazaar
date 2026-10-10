@@ -1,0 +1,221 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+My Profile
+{% endblock %}
+
+{% block main-content %}
+
+<div class="container-fluid px-2 px-sm-3 px-md-4 px-lg-5 my-3 my-md-4">
+    <div class="user-identification col-12 mx-auto">
+        {% if user.is_staff %}
+
+        <div class="vendor-introduction card border-0 shadow-sm rounded-4 p-3 p-sm-4 p-md-5 mb-3 mb-md-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 gap-md-4">
+                <div class="d-flex vendor-welcome-text align-items-center flex-column flex-sm-row text-center text-sm-start">
+                    <div class="profile-cover d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm">
+                        <i class="bi bi-person-fill text-white person-icon"></i>
+                    </div>
+                    <div class="status-box mx-sm-3 mx-md-4 mt-3 mt-sm-0">
+                        <h1 class="display-6 fw-bold mb-1">Hi, <span class="username">{{user.username}}</span></h1>
+                        <span class="status-text fs-6">You are a <span class="user-status fw-bold">Vendor</span></span>
+                        <div class="d-flex align-items-center justify-content-center justify-content-sm-start my-1 flex-wrap">
+                            <i class="bi bi-shop shop-icon"></i>
+                            <p class="mx-2 my-0 vendor-tagline">Manage your shop, products and categories from here..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="vendor-avatar flex-shrink-0 d-none d-md-block">
+                    <img src="{% static 'images/vendor-avatar.jpeg' %}" alt="Vendor" loading="lazy" class="rounded-4 shadow-sm">
+                </div>
+            </div>
+        </div>
+
+        <div class="vendor-details row g-2 g-sm-3 g-xl-4 mb-3 mb-md-4">
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="metric-card card border-0 shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="product-cover d-flex justify-content-center align-items-center mb-2 shadow-sm">
+                            <i class="bi bi-box text-white fs-4"></i>
+                        </div>
+                        <p class="detail-text mb-1">Total Products</p>
+                        <h4 class="metric-value fw-bold mb-2">{{ total_products|default:0 }}</h4>
+                    </div>
+                    <div>
+                        <a class="view-all-link text-decoration-none" href="{% url 'all-product' %}">View All ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="metric-card card border-0 shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="category-cover d-flex justify-content-center align-items-center mb-2 shadow-sm">
+                            <i class="bi bi-grid-fill text-white fs-4"></i>
+                        </div>
+                        <p class="detail-text mb-1">Total Categories</p>
+                        <h4 class="metric-value fw-bold mb-2">{{ total_categories|default:0 }}</h4>
+                    </div>
+                    <div>
+                        <a class="view-all-link text-decoration-none" href="{% url 'all-category' %}">View All ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="metric-card card border-0 shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="order-cover d-flex justify-content-center align-items-center mb-2 shadow-sm">
+                            <i class="bi bi-cart3 text-white fs-4"></i>
+                        </div>
+                        <p class="detail-text mb-1">Total Orders</p>
+                        <h4 class="metric-value fw-bold mb-2">{{ total_orders|default:0 }}</h4>
+                    </div>
+                    <div>
+                        <a class="view-all-link text-decoration-none" href="{% url 'my-orders' %}">View All ➔</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 col-md-6 col-lg-3">
+                <div class="metric-card card border-0 shadow-sm rounded-4 p-3 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <div class="store-status-cover d-flex justify-content-center align-items-center mb-2 shadow-sm">
+                            <i class="bi bi-eye-fill text-white fs-4"></i>
+                        </div>
+                        <p class="detail-text mb-1">Store Status</p>
+                        <h4 class="metric-value fw-bold mb-2 store-status-text d-flex align-items-center gap-2">
+                            Active <span class="active-dot-filled">●</span>
+                        </h4>
+                    </div>
+                    <div>
+                        <a class="view-all-link text-decoration-none" href="{% url 'products' %}">View Store ➔</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vendor-services quick-actions-panel rounded-4 p-3 p-md-4 mb-3 mb-md-4">
+            <div class="services-heading d-flex align-items-center mb-3">
+                <div class="thunder-icon-cover d-flex justify-content-center align-items-center me-3 shadow-sm">
+                    <i class="bi bi-lightning-charge-fill fs-5 lightning-icon"></i>
+                </div>
+                <div class="services-heading-text">
+                    <h6 class="fw-bold mb-0 text-dark fs-5">Quick Actions</h6>
+                    <p class="services-heading-lines text-muted small mb-0">Manage your store easily</p>
+                </div>
+            </div>
+
+            <div class="row g-2 g-sm-3 all-services">
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'add-category' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-tag fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">Add Category</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'all-category' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-grid fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">All Categories</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'add-product' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-plus-circle fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">Add Product</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'all-product' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-box-seam fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">All Products</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'all-product' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-pencil-square fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">Update Product</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+
+                <div class="col-6 col-sm-4 col-md-4 col-lg-2">
+                    <a href="{% url 'all-category' %}"
+                        class="action-card card h-100 text-decoration-none border-0 shadow-sm rounded-4 p-3 text-center d-flex flex-column align-items-center justify-content-between">
+                        <div class="action-icon-box mb-2 mt-1">
+                            <i class="bi bi-tags fs-3"></i>
+                        </div>
+                        <p class="service-text fw-semibold mb-2">Update Category</p>
+                        <span class="action-arrow">➔</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {% else %}
+        <div class="customer-introduction vendor-introduction card border-0 shadow-sm rounded-4 p-3 p-sm-4 p-md-5 mb-3 mb-md-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3 gap-md-4">
+                <div class="d-flex customer-welcome-text vendor-welcome-text align-items-center flex-column flex-sm-row text-center text-sm-start">
+                    <div class="profile-cover d-flex justify-content-center align-items-center flex-shrink-0 shadow-sm">
+                        <i class="bi bi-person-fill text-white person-icon"></i>
+                    </div>
+                    <div class="status-box mx-sm-3 mx-md-4 mt-3 mt-sm-0">
+                        <h1 class="display-6 fw-bold mb-1">Hi, <span class="username">{{user.username}}</span></h1>
+                        <span class="status-text fs-6">You are a <span class="user-status fw-bold">Customer</span></span>
+                        <div class="d-flex align-items-center justify-content-center justify-content-sm-start my-1 flex-wrap">
+                            <i class="bi bi-person-plus fs-3 shop-icon"></i>
+                            <p class="mx-2 my-0 customer-tagline vendor-tagline">Want to become a seller? Fill the form below ↓</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="customer-avatar vendor-avatar flex-shrink-0 d-none d-md-block">
+                    <img src="{% static 'images/customer-avatar.png' %}" alt="Customer" loading="lazy" class="rounded-4 shadow-sm">
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center my-3 my-md-4">
+            <div class="col-12 col-md-10 col-lg-8 col-xl-7">
+                <div class="card border-0 shadow-sm rounded-4 p-3 p-sm-4 p-md-5" id="orderform">
+                    <h2 class="text-center fw-bold mb-2">Vendor Request Form</h2>
+                    <hr class="mb-4">
+                    <form action="" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form | crispy }}
+                        <div class="text-center mt-3">
+                            <input type="submit" value="Send Request" class="btn btn-success px-4 py-2 rounded-pill fw-semibold shadow-sm w-100 w-sm-auto">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+{% endblock %}

@@ -41,7 +41,7 @@
        {{user.username}}
       </button>
       <ul class="dropdown-menu dropdown-menu-lg-end">
-        <li><a href='' class="dropdown-item" type="button">Profile</a></li>
+        <li><a href='{% url 'profile' %}' class="dropdown-item" type="button">Profile</a></li>
         <li><a href='{% url 'my-orders' %}' class="dropdown-item" type="button">My Orders</a></li>
         <li><a href="{% url 'logout' %}" class="dropdown-item" type="button">Logout</a></li>
             <li><a href="{% url 'wishlist' %}" class="dropdown-item" type="button">My wishlist</a></li>

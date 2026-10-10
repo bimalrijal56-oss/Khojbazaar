@@ -48,7 +48,7 @@ My Wishlist
                             <div class="d-flex justify-content-between">
                                 <a href="{% url 'product-details' item.product.id %}"
                             class="btn btn-sm btn-wishlist-view mt-auto text-decoration-none fw-semibold">View <i class="bi bi-eye-fill mx-2"></i></a>
-                            <a href="{% url 'delete-wishlist' item.product.id %}"class='btn btn-sm  btn-danger mt-auto text-decoration-none fw-semibold'>Delete<i class="bi bi-trash mx-2"></i></a>
+                            <a href="{% url 'delete-wishlist' item.id %}" class='btn btn-sm btn-danger mt-auto text-decoration-none fw-semibold'>Delete<i class="bi bi-trash mx-2"></i></a>
                             </div>
                     </div>
                 </div>
